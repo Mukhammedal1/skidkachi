@@ -28,6 +28,14 @@ import { StoreSubscribe } from "./store_subscribe/models/store_subscribe.model";
 import { StoreSocialLinkModule } from "./store_social_link/store_social_link.module";
 import { StoreSocialLink } from "./store_social_link/models/store_social_link.model";
 import { Bot } from "./bot/models/bot.model";
+import { DiscountsModule } from "./discounts/discounts.module";
+import { Discount } from "./discounts/models/discount.model";
+import { ReviewsModule } from "./reviews/reviews.module";
+import { Review } from "./reviews/models/review.model";
+import { PhotoModule } from "./photo/photo.module";
+import { Photo } from "./photo/models/photo.model";
+import { Address } from "./bot/models/address.model";
+import { Cars } from "./bot/models/cars.model";
 
 @Module({
   imports: [
@@ -58,7 +66,12 @@ import { Bot } from "./bot/models/bot.model";
         Store,
         StoreSubscribe,
         StoreSocialLink,
-        Bot
+        Bot,
+        Discount,
+        Review,
+        Photo,
+        Address,
+        Cars,
       ],
       autoLoadModels: true,
       sync: { alter: true },
@@ -78,6 +91,9 @@ import { Bot } from "./bot/models/bot.model";
     StoreModule,
     StoreSubscribeModule,
     StoreSocialLinkModule,
+    DiscountsModule,
+    ReviewsModule,
+    PhotoModule,
   ],
   controllers: [],
   providers: [],

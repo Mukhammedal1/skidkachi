@@ -19,10 +19,30 @@ export class BotUpdate {
     await this.botService.start(ctx);
   }
 
-   @On("contact")
-   async onContact(@Ctx() ctx: Context) {
-      await this.botService.onContact(ctx);
-    }
+  @On("contact")
+  async onContact(@Ctx() ctx: Context) {
+    await this.botService.onContact(ctx);
+  }
+
+  @Command("stop")
+  async onStop(@Ctx() ctx: Context) {
+    await this.botService.onStop(ctx);
+  }
+
+  @On("location")
+  async onLocation(@Ctx() ctx: Context) {
+    await this.botService.onLocation(ctx)
+    
+  }
+
+  @On("text")
+  async onText(@Ctx() ctx: Context) {
+    await this.botService.onText(ctx);
+  }
+  @On("message")
+  async onmessage(@Ctx() ctx: Context) {
+    console.log("ushlanmagan text");
+  }
 }
 //  @On("contact")
 //  async onStart(@Ctx() ctx: Context) {
@@ -134,24 +154,6 @@ export class BotUpdate {
 //   //   await ctx.replyWithHTML(`${ctx.text!.split["i"][1]}- bosildi`)
 //   // }
 
-//   @On("text")
-//   async onText(@Ctx() ctx: Context) {
-//     console.log(ctx);
-//     console.log(ctx.from);
-//     console.log(ctx.chat);
-//     if ("text" in ctx.message!) {
-//       if (ctx.message.text === "salom") {
-//         await ctx.replyWithHTML("<b>Valeykum Assalom</b>");
-//       } else {
-//         await ctx.reply(ctx.message.text); // eho bot
-//       }
-//     }
-//   }
-//   @On("message")
-//   async onmessage(@Ctx() ctx: Context) {
-//     console.log(ctx.botInfo);
-//   }
-
 //   @On("video")
 //   async onVideo(@Ctx() ctx: Context) {
 //     if ("video" in ctx.message!) {
@@ -185,14 +187,7 @@ export class BotUpdate {
 //     }
 //   }
 
-//   @On("location")
-//   async onLocation(@Ctx() ctx: Context) {
-//     if ("location" in ctx.message!) {
-//       console.log(ctx.message.location);
-//       await ctx.replyWithHTML(String(ctx.message.location.latitude));
-//       await ctx.replyWithHTML(String(ctx.message.location.longitude));
-//     }
-//   }
+ 
 
 //   @On("voice")
 //   async onVoice(@Ctx() ctx: Context) {
