@@ -20,8 +20,8 @@ export class CarsService {
       await ctx.reply(`Foydalanuvchilarning mashinalari`, {
         parse_mode: "HTML",
         ...Markup.keyboard([
-          ["Mening mashinalarim"],
-          ["Yangi mashina qo'shish"],
+          ["My cars"],
+          ["Add cars"],
         ]).resize(),
       });
     } catch (error) {
@@ -76,11 +76,11 @@ export class CarsService {
                 inline_keyboard: [
                   [
                     {
-                      text: "✏️ Mashinani yangilash",
+                      text: "✏️ Update",
                       callback_data: `upd_${car.id}`,
                     },
                     {
-                      text: "🗑️ Mashinani o'chirish",
+                      text: "🗑️ Delete",
                       callback_data: `del_${car.id}`,
                     },
                   ],
