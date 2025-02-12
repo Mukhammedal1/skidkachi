@@ -21,12 +21,12 @@ export class CarsUpdate {
     await this.carsService.onCars(ctx);
   }
 
-  @Hears("Yangi mashina qo'shish")
+  @Hears("Add cars")
   async onCommandNewAddress(@Ctx() ctx: Context) {
     await this.carsService.onCommandNewCars(ctx);
   }
 
-  @Hears("Mening mashinalarim")
+  @Hears("My cars")
   async onCommandMyCars(@Ctx() ctx: Context) {
     await this.carsService.onCommandMyCars(ctx);
   }

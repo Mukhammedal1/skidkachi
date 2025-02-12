@@ -167,7 +167,7 @@ export class BotService {
               await ctx.reply(`Mashina modeli yangilandi`, {
                 parse_mode: "HTML",
                 ...Markup.keyboard([
-                  ["Mening mashinalarim", "Yangi mashina qo'shish"],
+                  ["My cars", "Add cars"],
                 ]).resize(),
               });
             } else if (car && car.edit_session === "carnumber") {
@@ -176,7 +176,7 @@ export class BotService {
               await ctx.reply(`Mashina raqami yangilandi`, {
                 parse_mode: "HTML",
                 ...Markup.keyboard([
-                  ["Mening mashinalarim", "Yangi mashina qo'shish"],
+                  ["My cars", "Add cars"],
                 ]).resize(),
               });
             } else if (car && car.edit_session === "color") {
@@ -185,7 +185,7 @@ export class BotService {
               await ctx.reply(`Mashina rangi yangilandi`, {
                 parse_mode: "HTML",
                 ...Markup.keyboard([
-                  ["Mening mashinalarim", "Yangi mashina qo'shish"],
+                  ["My cars", "Add cars"],
                 ]).resize(),
               });
             } else if (car && car.edit_session === "year") {
@@ -242,7 +242,7 @@ export class BotService {
               await ctx.reply(`Yangi mashina saqlandi`, {
                 parse_mode: "HTML",
                 ...Markup.keyboard([
-                  ["Mening mashinalarim", "Yangi mashina qo'shish"],
+                  ["My cars", "Add cars"],
                 ]).resize(),
               });
             }
