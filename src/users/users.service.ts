@@ -229,7 +229,7 @@ export class UsersService {
       { where: { id: details.otp_id } }
     );
     return {
-      message: "Tabriklayman, siz owner bo'ldingiz",
+      message: "Tabriklayman!, siz owner bo'ldingiz",
     };
   }
 }
