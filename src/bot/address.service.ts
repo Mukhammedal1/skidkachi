@@ -100,8 +100,11 @@ export class AddressService {
   async onClickLocation(ctx: Context) {
     try {
       const contextAction = ctx.callbackQuery!["data"];
+      const contextMessage = ctx.callbackQuery!["message"]
+
       const address_id = contextAction.split("_")[1];
       const address = await this.addressModel.findByPk(address_id);
+      await ctx.deleteMessage(contextMessage?.message_id);
       await ctx.replyWithLocation(
         Number(address?.location?.split(",")[0]),
         Number(address?.location?.split(",")[1])

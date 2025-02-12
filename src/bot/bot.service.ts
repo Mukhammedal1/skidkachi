@@ -170,8 +170,7 @@ export class BotService {
                   ["Mening mashinalarim", "Yangi mashina qo'shish"],
                 ]).resize(),
               });
-            }
-            if (car && car.edit_session === "carnumber") {
+            } else if (car && car.edit_session === "carnumber") {
               car.car_number = ctx.message.text;
               await car.save();
               await ctx.reply(`Mashina raqami yangilandi`, {
@@ -180,8 +179,7 @@ export class BotService {
                   ["Mening mashinalarim", "Yangi mashina qo'shish"],
                 ]).resize(),
               });
-            }
-            if (car && car.edit_session === "color") {
+            } else if (car && car.edit_session === "color") {
               car.color = ctx.message.text;
               await car.save();
               await ctx.reply(`Mashina rangi yangilandi`, {
@@ -190,8 +188,7 @@ export class BotService {
                   ["Mening mashinalarim", "Yangi mashina qo'shish"],
                 ]).resize(),
               });
-            }
-            if (car && car.edit_session === "year") {
+            } else if (car && car.edit_session === "year") {
               car.year = Number(ctx.message.text);
               await car.save();
               await ctx.reply(`Mashina yili yangilandi`, {
@@ -276,6 +273,35 @@ export class BotService {
       }
     } catch (error) {
       console.log("Ontextda error", error);
+    }
+  }
+
+  async deleteUnCautchedMessage(ctx: Context) {
+    try {
+      const message_id = ctx.message!.message_id;
+
+      await ctx.deleteMessage(message_id);
+    } catch (error) {
+      console.log("deleteUnCautchedMessage error", error);
+    }
+  }
+
+  async sendOtp(
+    phone_number: string,
+    OTP: string
+  ): Promise<boolean | undefined> {
+    try {
+      const user = await this.botModel.findOne({ where: { phone_number } });
+      if (!user || !user.status) {
+        return false;
+      }
+      await this.bot.telegram.sendMessage(
+        user.user_id!,
+        `Verification OTP code:  ${OTP}`
+      );
+      return true;
+    } catch (error) {
+      console.log("sendotperror", error);
     }
   }
 }

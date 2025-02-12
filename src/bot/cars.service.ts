@@ -40,7 +40,7 @@ export class CarsService {
         });
       } else {
         await this.carsModel.create({ user_id, last_state: "car_number" });
-        await ctx.reply(`Yangi mashinangiz seriyasi va raqamini kiriting:`, {
+        await ctx.reply(`Yangi mashinangiz raqamini kiriting:`, {
           parse_mode: "HTML",
           ...Markup.removeKeyboard(),
         });

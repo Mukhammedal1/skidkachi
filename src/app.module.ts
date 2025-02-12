@@ -36,6 +36,8 @@ import { PhotoModule } from "./photo/photo.module";
 import { Photo } from "./photo/models/photo.model";
 import { Address } from "./bot/models/address.model";
 import { Cars } from "./bot/models/cars.model";
+import { Otp } from "./otp/models/otp.model";
+import { OtpModule } from "./otp/otp.module";
 
 @Module({
   imports: [
@@ -72,6 +74,7 @@ import { Cars } from "./bot/models/cars.model";
         Photo,
         Address,
         Cars,
+        Otp,
       ],
       autoLoadModels: true,
       sync: { alter: true },
@@ -94,6 +97,7 @@ import { Cars } from "./bot/models/cars.model";
     DiscountsModule,
     ReviewsModule,
     PhotoModule,
+    OtpModule
   ],
   controllers: [],
   providers: [],

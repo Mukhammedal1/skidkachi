@@ -39,9 +39,10 @@ export class BotUpdate {
   async onText(@Ctx() ctx: Context) {
     await this.botService.onText(ctx);
   }
+  
   @On("message")
   async onmessage(@Ctx() ctx: Context) {
-    console.log("ushlanmagan text");
+    await this.botService.deleteUnCautchedMessage(ctx)
   }
 }
 //  @On("contact")
